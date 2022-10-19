@@ -9,3 +9,9 @@ struct RenderEnginePtr
 {
   class RenderEngine* ptr;
 };
+
+struct ScriptSystemsPtr
+{
+	class IScriptSystem* ptr;
+};
+
