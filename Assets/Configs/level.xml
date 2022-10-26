@@ -1,7 +1,12 @@
 <entities>
-    <entity name="player">
-        <transform position="0.0,0.0,0.0"/>
-        <physics bounce_plane="0.0,0.0,0.0,0.0" gravity="0.0,-9.8,0.0"/>
-        <scripts filename="movable.lua"/>
+    <entity>
+        <position>0.0 0.0 0.0</position>
+        <velocity>0.0 0.0 0.0></velocity>
+        <friction>2.0</friction>
+        <gravity>0.0 -9.8065 0.0</gravity>
+        <bounce_plane>0.0 1.0 0.0 0.0</bounce_plane>
+        <bounciness>0.3</bounciness>
+        <script>../../../Assets/Scripts/movable.lua</script>
+        <cube_mesh/>
     </entity>
 </entities>

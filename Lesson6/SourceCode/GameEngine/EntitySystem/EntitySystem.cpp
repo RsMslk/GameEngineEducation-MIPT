@@ -8,7 +8,7 @@
 
 EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem, std::string xml_path)
 {
-   static auto world = Loader::LoadXML(xml_path);
+    static auto world = Loader::LoadXML(xml_path);
 
     ecs.entity("inputHandler")
         .set(InputHandlerPtr{ inputHandler });
