@@ -4,9 +4,12 @@
 #include "ecsControl.h"
 #include "ecsPhys.h"
 #include "../GameEngine/ecsScript.h"
+#include "../GameEngine/Loader.h"
 
-EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem)
+EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem, std::string xml_path)
 {
+   static auto world = Loader::LoadXML(xml_path);
+
     ecs.entity("inputHandler")
         .set(InputHandlerPtr{ inputHandler });
     ecs.entity("renderEngine")
@@ -18,7 +21,7 @@ EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandle
     register_ecs_phys_systems(ecs);
     register_ecs_script_systems(ecs);
 
-    auto cubeControl = ecs.entity()
+    /*auto cubeControl = ecs.entity()
         .set(Position{ 0.f, 0.f, 0.f })
         .set(Velocity{ 1.f, 0.f, 0.f })
         .set(FrictionAmount{ 0.f })
@@ -31,7 +34,7 @@ EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandle
             "../../../Assets/Scripts/movable.lua"))
         .add<Controllable>()
 
-        .add<CubeMesh>();
+        .add<CubeMesh>();*/
 
     auto cubeMoving = ecs.entity()
         .set(Position{ 0.f, 0.f, 0.f })
