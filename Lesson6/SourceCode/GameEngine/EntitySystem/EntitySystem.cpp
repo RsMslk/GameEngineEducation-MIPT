@@ -5,10 +5,11 @@
 #include "ecsPhys.h"
 #include "../GameEngine/ecsScript.h"
 #include "../GameEngine/Loader.h"
-
+#include <functional>
+#include <array>
 EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem, std::string xml_path)
 {
-    static auto world = Loader::LoadXML(xml_path);
+    //Loader::LoadXML(xml_path);
 
     ecs.entity("inputHandler")
         .set(InputHandlerPtr{ inputHandler });
@@ -36,6 +37,8 @@ EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandle
 
         .add<CubeMesh>();*/
 
+    Create_player(xml_path);
+
     auto cubeMoving = ecs.entity()
         .set(Position{ 0.f, 0.f, 0.f })
         .set(Velocity{ 0.f, 3.f, 0.f })
@@ -48,4 +51,37 @@ EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandle
 void EntitySystem::Update()
 {
     ecs.progress();
+}
+
+void EntitySystem::Create_player(std::string xml_path) {
+    std::unordered_map<std::string, std::function<void(flecs::entity, std::string)>> entity_dict = {
+        {
+            "position", [](flecs::entity e, const std::string& val) {
+                auto vec = Loader::GetVal<3>(val);
+                e.set(Position{ vec[0], vec[1], vec[2] });
+            }
+        },
+        {
+            "velocity", [](flecs::entity e, const std::string& val) {
+                auto vec = Loader::GetVal<3>(val);
+                e.set(Velocity{ vec[0], vec[1], vec[2] });
+            }
+        },
+        {
+            "cube_mesh", [](flecs::entity e, const std::string& val) {
+                e.add<CubeMesh>();
+            }
+        }
+    };
+    auto loader = Loader();
+    loader.LoadXML(xml_path);
+    auto level = loader.Get_level();
+    for (auto& entity : level)
+    {
+        auto e = ecs.entity();
+        for (auto& component : entity)
+        {
+            entity_dict[component.first](e, component.second);
+        }
+    }
 }

@@ -11,6 +11,7 @@ public:
 	EntitySystem() = delete;
 	EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem, std::string xml_path);
 	void Update();
+	void Create_player(std::string xml_path);
 private:
 	flecs::world ecs;
 };
