@@ -1,6 +1,7 @@
 <entities>
-    <entity>
-        <position>0.0 0.0 0.0</position>
-        <cube_mesh/>
-    </entity>
+	<entity>
+		<position> 0.0 0.0 0.0 </position>
+		<velocity> 0.0 0.0 0.0 </velocity>
+		<cube_mesh/>
+	</entity>
 </entities>

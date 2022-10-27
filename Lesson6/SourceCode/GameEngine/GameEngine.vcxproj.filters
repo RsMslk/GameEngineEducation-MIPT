@@ -48,10 +48,10 @@
     <ClInclude Include="ecsScript.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Loader.h">
+    <ClInclude Include="..\..\..\SDKs\tinyxml2\tinyxml2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\SDKs\tinyxml2\tinyxml2.h">
+    <ClInclude Include="Loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,13 +83,13 @@
     <ClCompile Include="ecsScripts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Loader.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\SDKs\tinyxml2\tinyxml2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SDKs\tinyxml2\xmltest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

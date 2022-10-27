@@ -26,10 +26,11 @@ static std::array<float, n> Loader::GetVal(const std::string& s)
 	//std::vector<float> val(n);
 	std::array<float, n> vals = {};
 	int counter_vals = 0;
+	std::string substr = {};
 	for (int i = 0; i < s.size(); i++)
 	{
 		
-		std::string substr;
+		
 		if (s[i] == '\n')
 		{
 			//val.push_back(std::stof(substr));

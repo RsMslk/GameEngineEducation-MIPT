@@ -1,8 +1,10 @@
 #include "Loader.h"
+#include <cassert>
 
 void Loader::LoadXML(std::string file) {
 	tinyxml2::XMLDocument level_xml{};
 	level_xml.LoadFile(file.data());
+	assert(!level_xml.Error());
 }
 
 std::vector<Loader::LevelComponents> Loader::Get_level() {

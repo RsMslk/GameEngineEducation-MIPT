@@ -7,10 +7,13 @@
 #include "../GameEngine/Loader.h"
 #include <functional>
 #include <array>
+#include <fstream>
+#include <stdio.h>
+
 EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem, std::string xml_path)
 {
     //Loader::LoadXML(xml_path);
-
+    
     ecs.entity("inputHandler")
         .set(InputHandlerPtr{ inputHandler });
     ecs.entity("renderEngine")
@@ -54,6 +57,9 @@ void EntitySystem::Update()
 }
 
 void EntitySystem::Create_player(std::string xml_path) {
+    Loader loader = Loader();
+    loader.LoadXML(xml_path);
+    auto level = loader.Get_level();
     std::unordered_map<std::string, std::function<void(flecs::entity, std::string)>> entity_dict = {
         {
             "position", [](flecs::entity e, const std::string& val) {
@@ -73,15 +79,23 @@ void EntitySystem::Create_player(std::string xml_path) {
             }
         }
     };
-    auto loader = Loader();
-    loader.LoadXML(xml_path);
-    auto level = loader.Get_level();
+    
+   /* FILE* file_1;
+    file_1 = fopen("map_out.txt", "a");
+    fprintf(file_1, " map_ SIZE: %d get_lvl_size %d", (int)entity_dict.size(),level.size() );
+    fclose(file_1);*/
     for (auto& entity : level)
     {
-        auto e = ecs.entity();
+        flecs::entity e = ecs.entity();
+        
         for (auto& component : entity)
         {
+            //file_1 = fopen("map_out.txt", "a");
             entity_dict[component.first](e, component.second);
+            /*fprintf(file_1, " Map SIZE: %s", component.first);
+            fprintf(file_1, " Map SIZE: %d", (int) entity_dict.size());
+            fclose(file_1);*/
         }
     }
+    
 }
