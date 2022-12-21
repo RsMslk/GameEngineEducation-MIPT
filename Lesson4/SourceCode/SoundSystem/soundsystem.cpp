@@ -40,5 +40,5 @@ void SoundSystem::load(std::string filename)
 
 void SoundSystem::play(std::string sound_name)
 {
-	engine->get_sound_engine()->play2D(sources.find("sound_name")->second);
+	engine->get_sound_engine()->play2D(sources.find(sound_name)->second);
 }
