@@ -13,6 +13,7 @@ EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandle
     ecs.entity("soundsystem")
         .set(SoundSystemPtr{ soundsystem });
 
+
     register_ecs_mesh_systems(ecs);
     register_ecs_control_systems(ecs);
     register_ecs_phys_systems(ecs);

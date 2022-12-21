@@ -72,7 +72,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExternalIncludePath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\include;$(ExternalIncludePath)</ExternalIncludePath>
     <IncludePath>$(IncludePath)</IncludePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;$(LibraryPath)</LibraryPath>
     <OutDir>..\..\Bin\Debugx64</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

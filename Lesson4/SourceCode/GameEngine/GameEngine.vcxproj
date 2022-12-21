@@ -80,7 +80,7 @@
     <IntDir>$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</IntDir>
     <IncludePath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\Lesson4\SourceCode\SoundSystem;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\include;$(SolutionDir)..\..\SDKs\bgfx\bimg\include\;$(SolutionDir)..\..\SDKs\bgfx\bx\include\;$(SolutionDir)..\..\SDKs\bgfx\bgfx\include\;$(IncludePath)</IncludePath>
     <ExternalIncludePath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>..\Bin\Debugx64;..\Bin;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\Lesson4\SourceCode\x64\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;..\Bin\Debugx64;..\Bin;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\Lesson4\SourceCode\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</OutDir>
@@ -146,8 +146,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\..\SDKs\flecs\lib\$(Platform)\$(Configuration)\;$(SolutionDir)..\..\SDKs\inih\lib\$(Platform)\$(Configuration)\;$(SolutionDir)..\..\SDKs\bgfx\lib\x64;$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(AdditionalDependencies);RenderEngine.lib;bgfxDebug.lib;bimg_decodeDebug.lib;bimgDebug.lib;bxDebug.lib;RenderBackend.lib;inih.lib;flecs.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\SDKs\flecs\lib\$(Platform)\$(Configuration)\;$(SolutionDir)..\..\SDKs\inih\lib\$(Platform)\$(Configuration)\;$(SolutionDir)..\..\SDKs\bgfx\lib\x64;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);RenderEngine.lib;bgfxDebug.lib;bimg_decodeDebug.lib;bimgDebug.lib;bxDebug.lib;RenderBackend.lib;inih.lib;flecs.lib;SoundSystem.lib;irrKlang.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -183,6 +183,7 @@
     <ClInclude Include="GameTimer.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EntitySystem\ecsControl.cpp" />
@@ -193,6 +194,12 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameTimer.cpp" />
     <ClCompile Include="InputHandler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GameEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\..\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio\irrKlang.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

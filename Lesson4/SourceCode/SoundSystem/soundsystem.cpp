@@ -34,7 +34,7 @@ SoundSystem::SoundSystem()
 void SoundSystem::load(std::string filename)
 {
 
-	irrklang::ISoundSource* Sound = SoundSystem::engine->get_sound_engine()->addSoundSourceFromFile("sound.wav");
+	irrklang::ISoundSource* Sound = SoundSystem::engine->get_sound_engine()->addSoundSourceFromFile(filename.c_str());
 	sources.insert(std::pair<std::string, irrklang::ISoundSource*>("Sound", Sound));
 }
 
