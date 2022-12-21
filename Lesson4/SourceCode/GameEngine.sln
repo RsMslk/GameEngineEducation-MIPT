@@ -4,10 +4,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEngine", "GameEngine\GameEngine.vcxproj", "{1D7BCD75-0366-4DFF-A508-61D7E0449937}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2CE555BC-E029-4B96-9F60-75D7F69236AB} = {2CE555BC-E029-4B96-9F60-75D7F69236AB}
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E} = {76D79CF1-526E-4310-B854-DC90F57BFB7E}
+		{99B1EC67-7931-4F93-BAA9-23A6D3A5CE85} = {99B1EC67-7931-4F93-BAA9-23A6D3A5CE85}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderEngine", "RenderEngine\RenderEngine.vcxproj", "{99B1EC67-7931-4F93-BAA9-23A6D3A5CE85}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2CE555BC-E029-4B96-9F60-75D7F69236AB} = {2CE555BC-E029-4B96-9F60-75D7F69236AB}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderBackend", "RenderBackend\RenderBackend.vcxproj", "{2CE555BC-E029-4B96-9F60-75D7F69236AB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundSystem", "SoundSystem\SoundSystem.vcxproj", "{76D79CF1-526E-4310-B854-DC90F57BFB7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +51,14 @@ Global
 		{2CE555BC-E029-4B96-9F60-75D7F69236AB}.Release|x64.Build.0 = Release|x64
 		{2CE555BC-E029-4B96-9F60-75D7F69236AB}.Release|x86.ActiveCfg = Release|Win32
 		{2CE555BC-E029-4B96-9F60-75D7F69236AB}.Release|x86.Build.0 = Release|Win32
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Debug|x64.ActiveCfg = Debug|x64
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Debug|x64.Build.0 = Debug|x64
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Debug|x86.ActiveCfg = Debug|Win32
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Debug|x86.Build.0 = Debug|Win32
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Release|x64.ActiveCfg = Release|x64
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Release|x64.Build.0 = Release|x64
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Release|x86.ActiveCfg = Release|Win32
+		{76D79CF1-526E-4310-B854-DC90F57BFB7E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -78,7 +78,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</IntDir>
-    <IncludePath>$(SolutionDir)..\..\SDKs\bgfx\bimg\include\;$(SolutionDir)..\..\SDKs\bgfx\bx\include\;$(SolutionDir)..\..\SDKs\bgfx\bgfx\include\;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\Lesson4\SourceCode\SoundSystem;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\include;$(SolutionDir)..\..\SDKs\bgfx\bimg\include\;$(SolutionDir)..\..\SDKs\bgfx\bx\include\;$(SolutionDir)..\..\SDKs\bgfx\bgfx\include\;$(IncludePath)</IncludePath>
+    <ExternalIncludePath>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>..\Bin\Debugx64;..\Bin;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\lib\Winx64-visualStudio;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\Lesson4\SourceCode\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)..\Bin\$(Configuration)$(Platform)\</OutDir>
@@ -137,7 +139,7 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\..\SDKs\flecs\src;$(SolutionDir)..\..\SDKs\inih\include;$(SolutionDir)\RenderEngine\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\rusla\source\repos\GameEngineEducation-MIPT\Lesson4\SourceCode\SoundSystem;$(SolutionDir)..\..\SDKs\flecs\src;$(SolutionDir)..\..\SDKs\inih\include;C:\Users\rusla\source\repos\GameEngineEducation-MIPT\SDKs\irrKlang-64bit-1.6.0\include;$(SolutionDir)\RenderEngine\</AdditionalIncludeDirectories>
       <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>

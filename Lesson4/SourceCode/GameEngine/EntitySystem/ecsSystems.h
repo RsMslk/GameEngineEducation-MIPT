@@ -9,3 +9,8 @@ struct RenderEnginePtr
 {
   class RenderEngine* ptr;
 };
+
+struct SoundSystemPtr
+{
+	class SoundSystem* ptr;
+};

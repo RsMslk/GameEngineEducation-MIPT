@@ -5,7 +5,7 @@
 #include "ecsPhys.h"
 #include "../GameEngine/ecsScript.h"
 
-EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem)
+EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandler, IScriptSystem* scriptSystem, SoundSystem* soundsystem)
 {
     ecs.entity("inputHandler")
         .set(InputHandlerPtr{ inputHandler });
@@ -13,6 +13,9 @@ EntitySystem::EntitySystem(RenderEngine* renderEngine, InputHandler* inputHandle
         .set(RenderEnginePtr{ renderEngine });
     ecs.entity("scriptSystem")
         .set(ScriptSystemsPtr {scriptSystem});
+    ecs.entity("soundSystem")
+        .set(SoundSystemPtr{ soundSystem });
+
     register_ecs_mesh_systems(ecs);
     register_ecs_control_systems(ecs);
     register_ecs_phys_systems(ecs);

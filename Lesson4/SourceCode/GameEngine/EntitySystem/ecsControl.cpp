@@ -3,10 +3,11 @@
 #include "ecsPhys.h"
 #include "flecs.h"
 #include "../InputHandler.h"
-
+#include "../SoundSystem/soundsystem.h"
 void register_ecs_control_systems(flecs::world &ecs)
 {
   static auto inputQuery = ecs.query<InputHandlerPtr>();
+  static auto sound = ecs.query<SoundSystemPtr>();
   ecs.system<Velocity, const Speed, const Controllable>()
     .each([&](flecs::entity e, Velocity &vel, const Speed &spd, const Controllable &)
     {
@@ -28,8 +29,14 @@ void register_ecs_control_systems(flecs::world &ecs)
       {
         constexpr float planeEpsilon = 0.1f;
         if (plane.x*pos.x + plane.y*pos.y + plane.z*pos.z < plane.w + planeEpsilon)
-          if (input.ptr->GetInputState().test(eIC_Jump))
-            vel.y = jump.val;
+            if (input.ptr->GetInputState().test(eIC_Jump))
+            {
+                vel.y = jump.val;
+                sound.each([&](SoundSystemPtr snd)
+                    {
+                        snd.ptr->play("Sound");
+                    });
+            }           
       });
     });
 }
